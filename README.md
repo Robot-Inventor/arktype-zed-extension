@@ -1,13 +1,14 @@
 # arktype-zed-extension
 
-Unofficial ArkType highlighting extension for Zed.
+Unofficial ArkType syntax-highlighting extension for Zed.
 
 ## Features
 
-- Registers the ArkType Tree-sitter grammar.
-- Adds a hidden `ArkType` language used only as an injection target.
-- Injects ArkType highlighting into JavaScript (including JSX), TypeScript, and TSX strings passed to ArkType APIs.
-- Uses Zed's built-in JavaScript/TypeScript/TSX grammars (no JS/TS grammar replacement in this extension).
+- Highlights ArkType syntax in schema strings/template strings passed to ArkType APIs (for example `type("string.email")`, chained calls like `.or(...)`/`.to(...)`, and object/array schema values).
+- Highlights ArkRegex syntax for `regex("...")` and `.regex("...")` call arguments.
+
+> [!NOTE]
+> Zed has built-in JS/TS/TSX language definitions, and this extension ships adapted copies of those definitions to add ArkType/ArkRegex highlighting. For JS/TS/TSX, these definitions overwrite the built-in ones at runtime. Built-in definitions and this extension's ones cannot be used simultaneously.
 
 ## License
 

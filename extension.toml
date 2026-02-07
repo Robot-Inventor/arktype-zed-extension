@@ -3,7 +3,7 @@ name = "ArkType"
 version = "0.0.1"
 schema_version = 1
 authors = ["roboin <https://github.com/Robot-Inventor>"]
-description = "Unofficial ArkType extension for Zed"
+description = "Unofficial ArkType syntax-highlighting extension for Zed."
 repository = "https://github.com/Robot-Inventor/arktype-zed-extension"
 
 [grammars.arktype]
