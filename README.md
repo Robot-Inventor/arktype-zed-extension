@@ -19,6 +19,20 @@ This repository is licensed under GPL-3.0-or-later. See `LICENSE`.
 2. Select this repository directory.
 3. Open a JS/TS file and add an ArkType string such as `type("string.email")`.
 
+## Upstream Sync
+
+- Upstream language sources are checked and synced automatically every week via
+  `.github/workflows/weekly-upstream-sync.yml`.
+- The workflow creates a PR only when the generated result has actual repository
+  diffs, and requests review from the repository owner.
+
+### Manual Sync
+
+You can run the same sync process manually in either way:
+
+1. GitHub Actions: run `Weekly Upstream Sync` from the Actions tab (`workflow_dispatch`).
+2. Local command: run `node scripts/sync-upstreams.mjs`, then review changes with `git diff`.
+
 ## Third-Party Notices
 
 ### ArkType Tree-sitter grammar (`tree-sitter-arktype`)

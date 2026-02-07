@@ -1,3 +1,5 @@
+; NOTE: This file is managed by scripts/sync-upstreams.mjs.
+; Update that script instead of editing this file directly.
 ; Root ArkType calls: type(...), generic(...), scope(...), define(...), match(...), fn(...), module(...), ark*(...)
 (call_expression
   function: (identifier) @_ark_fn
