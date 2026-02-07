@@ -17,4 +17,7 @@ Unofficial ArkType highlighting extension for Zed.
 
 ## Attribution
 
-This extension uses the `tree-sitter-arktype` grammar by Jeff Martin: https://github.com/jeffrom/tree-sitter-arktype
+- ArkType Tree-sitter grammar (`tree-sitter-arktype`) by Jeff Martin: https://github.com/jeffrom/tree-sitter-arktype
+- ArkType VS Code extension injection/highlighting rules, referenced for parity of ArkType call-chain highlighting: https://github.com/arktypeio/arktype/tree/main/ark/extension
+- JavaScript/TypeScript/TSX language query/config baselines are adapted from Zed built-in language definitions: https://github.com/zed-industries/zed/tree/main/crates/languages/src
+- JavaScript/TypeScript parsing is provided by Zed built-ins, which are based on Tree-sitter TypeScript grammars: https://github.com/tree-sitter/tree-sitter-typescript (and Zed's fork: https://github.com/zed-industries/tree-sitter-typescript)
