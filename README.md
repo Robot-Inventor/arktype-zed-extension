@@ -15,3 +15,6 @@ Unofficial ArkType language extension for Zed.
 2. Select this repository directory.
 3. Open a file with the `.arktype` or `.ark` extension and set language to `ArkType` if needed.
 
+## Attribution
+
+This extension uses the `tree-sitter-arktype` grammar by Jeff Martin: https://github.com/jeffrom/tree-sitter-arktype
