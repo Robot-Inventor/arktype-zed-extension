@@ -16,6 +16,8 @@ This directory contains files adapted from third-party projects.
 `highlights.scm` was adapted for Zed theme/capture behavior. Local additions include
 captures for `keyword`, `literal`, and `escape_sequence`, plus literal classification
 predicates and regex capture alignment (`@string.regex` / `@string.special`).
+An additional local query file, `injections.scm`, injects regex literals into Zed's
+`regex` language for detailed token highlighting within ArkType strings.
 
 <details>
 <summary>License Text (MIT)</summary>

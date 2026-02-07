@@ -17,7 +17,6 @@
 
 (escape_sequence) @string.escape
 
-(regex) @string.regex
 (regex_flags) @keyword.operator.regex
 (regex "/" @string.regex)
 
