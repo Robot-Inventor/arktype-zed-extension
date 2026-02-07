@@ -26,6 +26,8 @@ This directory contains files adapted from third-party projects.
 Compared to upstream, the following local modifications were made:
 
 - Added `injections-arktype.scm` for ArkType-specific string/template injections.
+- Modified `injections-arktype.scm` to constrain chain-method injections to ArkType
+  call-chain receivers and avoid false positives on unrelated member-call chains.
 - Modified `imports.scm` to a compatibility-safe import query for cross-parser stability.
 - Modified `highlights.scm` to add ArkType chain-method highlighting captures
   (`and`, `or`, `case`, `in`, `extends`, `ifExtends`, `intersect`, `merge`,
@@ -253,6 +255,7 @@ The GNU General Public License does not permit incorporating your program into p
 
 The original TextMate-style injection behavior was adapted to Tree-sitter query form,
 including chained ArkType APIs and object/array string-value injection coverage.
+Member-call injections are constrained to ArkType call-chain receivers.
 
 <details>
 <summary>License Text (MIT)</summary>

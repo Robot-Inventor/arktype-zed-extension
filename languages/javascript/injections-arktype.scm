@@ -34,11 +34,18 @@
       ]))
   (#set! injection.language "arktype"))
 
-; Member ArkType calls and chain methods with direct string args.
-; Covers obj.type("..."), type("...").to("..."), scope(...).and("...") etc.
+; ArkType call chains and chain methods with direct string args.
+; Covers type("...").to("..."), scope(...).and("...") etc.
 (call_expression
   function: (member_expression
+    object: (call_expression
+      function: [
+        (identifier) @_ark_receiver_fn
+        (member_expression
+          property: (property_identifier) @_ark_receiver_fn)
+      ])
     property: (property_identifier) @_ark_method)
+  (#match? @_ark_receiver_fn "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   (#match? @_ark_method "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   arguments: (arguments
     [
@@ -47,10 +54,17 @@
     ])
   (#set! injection.language "arktype"))
 
-; Member ArkType calls and chain methods with object value strings.
+; ArkType call chains and chain methods with object value strings.
 (call_expression
   function: (member_expression
+    object: (call_expression
+      function: [
+        (identifier) @_ark_receiver_fn
+        (member_expression
+          property: (property_identifier) @_ark_receiver_fn)
+      ])
     property: (property_identifier) @_ark_method)
+  (#match? @_ark_receiver_fn "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   (#match? @_ark_method "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   arguments: (arguments
     (object
@@ -61,10 +75,17 @@
         ])))
   (#set! injection.language "arktype"))
 
-; Member ArkType calls and chain methods with object->array value strings.
+; ArkType call chains and chain methods with object->array value strings.
 (call_expression
   function: (member_expression
+    object: (call_expression
+      function: [
+        (identifier) @_ark_receiver_fn
+        (member_expression
+          property: (property_identifier) @_ark_receiver_fn)
+      ])
     property: (property_identifier) @_ark_method)
+  (#match? @_ark_receiver_fn "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   (#match? @_ark_method "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   arguments: (arguments
     (object
@@ -76,10 +97,17 @@
           ]))))
   (#set! injection.language "arktype"))
 
-; Member ArkType calls and chain methods with nested object value strings.
+; ArkType call chains and chain methods with nested object value strings.
 (call_expression
   function: (member_expression
+    object: (call_expression
+      function: [
+        (identifier) @_ark_receiver_fn
+        (member_expression
+          property: (property_identifier) @_ark_receiver_fn)
+      ])
     property: (property_identifier) @_ark_method)
+  (#match? @_ark_receiver_fn "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   (#match? @_ark_method "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   arguments: (arguments
     (object
