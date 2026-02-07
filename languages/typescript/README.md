@@ -26,8 +26,9 @@ This directory contains files adapted from third-party projects.
 Compared to upstream, the following local modifications were made:
 
 - Added `injections-arktype.scm` for ArkType-specific string/template injections.
-- Modified `injections-arktype.scm` to constrain chain-method injections to ArkType
-  call-chain receivers and avoid false positives on unrelated member-call chains.
+- Modified `injections-arktype.scm` to add fallback chain-method injections for
+  identifier/member receivers (e.g. `schema.merge({...})`) for VS Code parity,
+  while retaining strict ArkType receiver checks for direct call-chain forms.
 - Modified `injections-arktype.scm` to inject root-call schema strings inside
   object->array and nested object values for parity with member-call coverage.
 - Modified `imports.scm` to a compatibility-safe import query for cross-parser stability.

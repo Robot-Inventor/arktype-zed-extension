@@ -85,6 +85,23 @@
     ])
   (#set! injection.language "arktype"))
 
+; Fallback for ArkType chain methods on identifier/member receivers.
+; Covers const schema = type(...); schema.merge({...}) style calls.
+(call_expression
+  function: (member_expression
+    object: [
+      (identifier)
+      (member_expression)
+    ]
+    property: (property_identifier) @_ark_method)
+  (#match? @_ark_method "^(and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
+  arguments: (arguments
+    [
+      (string (string_fragment) @injection.content)
+      (template_string (string_fragment) @injection.content)
+    ])
+  (#set! injection.language "arktype"))
+
 ; ArkType call chains and chain methods with object value strings.
 (call_expression
   function: (member_expression
@@ -97,6 +114,24 @@
     property: (property_identifier) @_ark_method)
   (#match? @_ark_receiver_fn "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   (#match? @_ark_method "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: [
+          (string (string_fragment) @injection.content)
+          (template_string (string_fragment) @injection.content)
+        ])))
+  (#set! injection.language "arktype"))
+
+; Fallback for ArkType chain methods on identifier/member receivers with object value strings.
+(call_expression
+  function: (member_expression
+    object: [
+      (identifier)
+      (member_expression)
+    ]
+    property: (property_identifier) @_ark_method)
+  (#match? @_ark_method "^(and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   arguments: (arguments
     (object
       (pair
@@ -128,6 +163,25 @@
           ]))))
   (#set! injection.language "arktype"))
 
+; Fallback for ArkType chain methods on identifier/member receivers with object->array value strings.
+(call_expression
+  function: (member_expression
+    object: [
+      (identifier)
+      (member_expression)
+    ]
+    property: (property_identifier) @_ark_method)
+  (#match? @_ark_method "^(and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: (array
+          [
+            (string (string_fragment) @injection.content)
+            (template_string (string_fragment) @injection.content)
+          ]))))
+  (#set! injection.language "arktype"))
+
 ; ArkType call chains and chain methods with nested object value strings.
 (call_expression
   function: (member_expression
@@ -140,6 +194,26 @@
     property: (property_identifier) @_ark_method)
   (#match? @_ark_receiver_fn "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   (#match? @_ark_method "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*|and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: (object
+          (pair
+            value: [
+              (string (string_fragment) @injection.content)
+              (template_string (string_fragment) @injection.content)
+            ])))))
+  (#set! injection.language "arktype"))
+
+; Fallback for ArkType chain methods on identifier/member receivers with nested object value strings.
+(call_expression
+  function: (member_expression
+    object: [
+      (identifier)
+      (member_expression)
+    ]
+    property: (property_identifier) @_ark_method)
+  (#match? @_ark_method "^(and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   arguments: (arguments
     (object
       (pair

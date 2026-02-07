@@ -118,6 +118,23 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
     ])
   (#set! injection.language "arktype"))
 
+; Fallback for ArkType chain methods on identifier/member receivers.
+; Covers const schema = type(...); schema.merge({...}) style calls.
+(call_expression
+  function: (member_expression
+    object: [
+      (identifier)
+      (member_expression)
+    ]
+    property: (property_identifier) @_ark_method)
+  (#match? @_ark_method "^(@@CHAIN_REGEX@@)$")
+  arguments: (arguments
+    [
+      (string (string_fragment) @injection.content)
+      (template_string (string_fragment) @injection.content)
+    ])
+  (#set! injection.language "arktype"))
+
 ; ArkType call chains and chain methods with object value strings.
 (call_expression
   function: (member_expression
@@ -130,6 +147,24 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
     property: (property_identifier) @_ark_method)
   (#match? @_ark_receiver_fn "^(@@COMBINED_REGEX@@)$")
   (#match? @_ark_method "^(@@COMBINED_REGEX@@)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: [
+          (string (string_fragment) @injection.content)
+          (template_string (string_fragment) @injection.content)
+        ])))
+  (#set! injection.language "arktype"))
+
+; Fallback for ArkType chain methods on identifier/member receivers with object value strings.
+(call_expression
+  function: (member_expression
+    object: [
+      (identifier)
+      (member_expression)
+    ]
+    property: (property_identifier) @_ark_method)
+  (#match? @_ark_method "^(@@CHAIN_REGEX@@)$")
   arguments: (arguments
     (object
       (pair
@@ -161,6 +196,25 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
           ]))))
   (#set! injection.language "arktype"))
 
+; Fallback for ArkType chain methods on identifier/member receivers with object->array value strings.
+(call_expression
+  function: (member_expression
+    object: [
+      (identifier)
+      (member_expression)
+    ]
+    property: (property_identifier) @_ark_method)
+  (#match? @_ark_method "^(@@CHAIN_REGEX@@)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: (array
+          [
+            (string (string_fragment) @injection.content)
+            (template_string (string_fragment) @injection.content)
+          ]))))
+  (#set! injection.language "arktype"))
+
 ; ArkType call chains and chain methods with nested object value strings.
 (call_expression
   function: (member_expression
@@ -173,6 +227,26 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
     property: (property_identifier) @_ark_method)
   (#match? @_ark_receiver_fn "^(@@COMBINED_REGEX@@)$")
   (#match? @_ark_method "^(@@COMBINED_REGEX@@)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: (object
+          (pair
+            value: [
+              (string (string_fragment) @injection.content)
+              (template_string (string_fragment) @injection.content)
+            ])))))
+  (#set! injection.language "arktype"))
+
+; Fallback for ArkType chain methods on identifier/member receivers with nested object value strings.
+(call_expression
+  function: (member_expression
+    object: [
+      (identifier)
+      (member_expression)
+    ]
+    property: (property_identifier) @_ark_method)
+  (#match? @_ark_method "^(@@CHAIN_REGEX@@)$")
   arguments: (arguments
     (object
       (pair
@@ -323,7 +397,8 @@ function writeInjections(repoRoot, rootRegex, chainRegex) {
   const combinedRegex = `${rootRegex}|${chainRegex}`;
   const content = INJECTIONS_TEMPLATE
     .replaceAll('@@ROOT_REGEX@@', rootRegex)
-    .replaceAll('@@COMBINED_REGEX@@', combinedRegex);
+    .replaceAll('@@COMBINED_REGEX@@', combinedRegex)
+    .replaceAll('@@CHAIN_REGEX@@', chainRegex);
 
   for (const language of LANGUAGES) {
     const target = path.join(repoRoot, 'languages', language, 'injections-arktype.scm');
