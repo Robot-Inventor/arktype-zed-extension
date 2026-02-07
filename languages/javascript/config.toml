@@ -1,2 +1,3 @@
 name = "JavaScript"
 grammar = "javascript"
+path_suffixes = ["js", "mjs", "cjs"]

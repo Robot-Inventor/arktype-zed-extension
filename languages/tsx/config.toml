@@ -1,2 +1,3 @@
 name = "TSX"
 grammar = "tsx"
+path_suffixes = ["tsx"]
