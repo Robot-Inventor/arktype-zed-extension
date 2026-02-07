@@ -2,37 +2,15 @@
 
 Unofficial ArkType syntax-highlighting extension for Zed.
 
-## Features
-
 - Highlights ArkType syntax in schema strings/template strings passed to ArkType APIs (for example `type("string.email")`, chained calls like `.or(...)`/`.to(...)`, and object/array schema values).
 - Highlights ArkRegex syntax for `regex("...")` and `.regex("...")` call arguments.
 
 > [!NOTE]
 > Zed has built-in JS/TS/TSX language definitions, and this extension ships adapted copies of those definitions to add ArkType/ArkRegex highlighting. For JS/TS/TSX, these definitions overwrite the built-in ones at runtime. Built-in definitions and this extension's ones cannot be used simultaneously.
 
-## License
-
-This repository is licensed under GPL-3.0-or-later. See `LICENSE`.
-
-## Local Development
-
-1. Open Zed and run `Install Dev Extension`.
-2. Select this repository directory.
-3. Open a JS/TS file and add an ArkType string such as `type("string.email")`.
-
 ## Upstream Sync
 
-- Upstream language sources are checked and synced automatically every week via
-  `.github/workflows/weekly-upstream-sync.yml`.
-- The workflow creates a PR only when the generated result has actual repository
-  diffs, and requests review from the repository owner.
-
-### Manual Sync
-
-You can run the same sync process manually in either way:
-
-1. GitHub Actions: run `Weekly Upstream Sync` from the Actions tab (`workflow_dispatch`).
-2. Local command: run `node scripts/sync-upstreams.mjs`, then review changes with `git diff`.
+Upstream language sources are checked and synced automatically every week. You can run the same sync process manually with `node scripts/sync-upstreams.mjs`.
 
 ## Third-Party Notices
 
