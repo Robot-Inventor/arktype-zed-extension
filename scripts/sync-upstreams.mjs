@@ -42,7 +42,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
       (string (string_fragment) @injection.content)
       (template_string (string_fragment) @injection.content)
     ])
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Root ArkType calls with object value strings: type({ key: "string" })
 (call_expression
@@ -55,7 +55,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
           (string (string_fragment) @injection.content)
           (template_string (string_fragment) @injection.content)
         ])))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Root ArkType calls with object->array value strings: type({ tags: ["string"] })
 (call_expression
@@ -95,7 +95,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
                       (template_string (string_fragment) @injection.content)
                     ]))))
           ]))))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Root ArkType calls with nested object value strings: type({ user: { id: "string" } })
 (call_expression
@@ -110,7 +110,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
               (string (string_fragment) @injection.content)
               (template_string (string_fragment) @injection.content)
             ])))))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Root ArkType calls with array value strings: type(["string", "number"])
 (call_expression
@@ -148,7 +148,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
                   (template_string (string_fragment) @injection.content)
                 ]))))
       ]))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; ArkType call chains and chain methods with direct string args.
 ; Covers type("...").to("..."), scope(...).and("...") etc.
@@ -168,7 +168,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
       (string (string_fragment) @injection.content)
       (template_string (string_fragment) @injection.content)
     ])
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Fallback for ArkType chain methods on identifier/member receivers.
 ; Covers const schema = type(...); schema.merge({...}) style calls.
@@ -185,7 +185,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
       (string (string_fragment) @injection.content)
       (template_string (string_fragment) @injection.content)
     ])
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; ArkType call chains and chain methods with object value strings.
 (call_expression
@@ -206,7 +206,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
           (string (string_fragment) @injection.content)
           (template_string (string_fragment) @injection.content)
         ])))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Fallback for ArkType chain methods on identifier/member receivers with object value strings.
 (call_expression
@@ -224,7 +224,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
           (string (string_fragment) @injection.content)
           (template_string (string_fragment) @injection.content)
         ])))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; ArkType call chains and chain methods with object->array value strings.
 (call_expression
@@ -272,7 +272,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
                       (template_string (string_fragment) @injection.content)
                     ]))))
           ]))))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Fallback for ArkType chain methods on identifier/member receivers with object->array value strings.
 (call_expression
@@ -317,7 +317,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
                       (template_string (string_fragment) @injection.content)
                     ]))))
           ]))))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; ArkType call chains and chain methods with nested object value strings.
 (call_expression
@@ -340,7 +340,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
               (string (string_fragment) @injection.content)
               (template_string (string_fragment) @injection.content)
             ])))))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Fallback for ArkType chain methods on identifier/member receivers with nested object value strings.
 (call_expression
@@ -360,7 +360,7 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
               (string (string_fragment) @injection.content)
               (template_string (string_fragment) @injection.content)
             ])))))
-  (#set! injection.language "typescript"))
+  (#set! injection.language "arktype"))
 
 ; Regex helper parity with VS Code extension: regex("..."), obj.regex("...")
 (call_expression
