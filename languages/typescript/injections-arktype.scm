@@ -9,7 +9,7 @@
       (string (string_fragment) @injection.content)
       (template_string (string_fragment) @injection.content)
     ])
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Root ArkType calls with object value strings: type({ key: "string" })
 (call_expression
@@ -22,7 +22,7 @@
           (string (string_fragment) @injection.content)
           (template_string (string_fragment) @injection.content)
         ])))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Root ArkType calls with object->array value strings: type({ tags: ["string"] })
 (call_expression
@@ -62,7 +62,7 @@
                       (template_string (string_fragment) @injection.content)
                     ]))))
           ]))))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Root ArkType calls with nested object value strings: type({ user: { id: "string" } })
 (call_expression
@@ -77,7 +77,7 @@
               (string (string_fragment) @injection.content)
               (template_string (string_fragment) @injection.content)
             ])))))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Root ArkType calls with array value strings: type(["string", "number"])
 (call_expression
@@ -115,7 +115,7 @@
                   (template_string (string_fragment) @injection.content)
                 ]))))
       ]))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; ArkType call chains and chain methods with direct string args.
 ; Covers type("...").to("..."), scope(...).and("...") etc.
@@ -135,7 +135,7 @@
       (string (string_fragment) @injection.content)
       (template_string (string_fragment) @injection.content)
     ])
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Fallback for ArkType chain methods on identifier/member receivers.
 ; Covers const schema = type(...); schema.merge({...}) style calls.
@@ -152,7 +152,7 @@
       (string (string_fragment) @injection.content)
       (template_string (string_fragment) @injection.content)
     ])
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; ArkType call chains and chain methods with object value strings.
 (call_expression
@@ -173,7 +173,7 @@
           (string (string_fragment) @injection.content)
           (template_string (string_fragment) @injection.content)
         ])))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Fallback for ArkType chain methods on identifier/member receivers with object value strings.
 (call_expression
@@ -191,7 +191,7 @@
           (string (string_fragment) @injection.content)
           (template_string (string_fragment) @injection.content)
         ])))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; ArkType call chains and chain methods with object->array value strings.
 (call_expression
@@ -239,7 +239,7 @@
                       (template_string (string_fragment) @injection.content)
                     ]))))
           ]))))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Fallback for ArkType chain methods on identifier/member receivers with object->array value strings.
 (call_expression
@@ -284,7 +284,7 @@
                       (template_string (string_fragment) @injection.content)
                     ]))))
           ]))))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; ArkType call chains and chain methods with nested object value strings.
 (call_expression
@@ -307,7 +307,7 @@
               (string (string_fragment) @injection.content)
               (template_string (string_fragment) @injection.content)
             ])))))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Fallback for ArkType chain methods on identifier/member receivers with nested object value strings.
 (call_expression
@@ -327,7 +327,7 @@
               (string (string_fragment) @injection.content)
               (template_string (string_fragment) @injection.content)
             ])))))
-  (#set! injection.language "arktype"))
+  (#set! injection.language "typescript"))
 
 ; Regex helper parity with VS Code extension: regex("..."), obj.regex("...")
 (call_expression
