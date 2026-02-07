@@ -1,0 +1,3 @@
+name = "ArkType"
+grammar = "arktype"
+hidden = true
