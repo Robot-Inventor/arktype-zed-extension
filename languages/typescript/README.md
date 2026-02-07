@@ -29,8 +29,9 @@ Compared to upstream, the following local modifications were made:
 - Modified `injections-arktype.scm` to add fallback chain-method injections for
   identifier/member receivers (e.g. `schema.merge({...})`) for VS Code parity,
   while retaining strict ArkType receiver checks for direct call-chain forms.
-- Modified `injections-arktype.scm` to inject root-call schema strings inside
-  object->array and nested object values for parity with member-call coverage.
+- Modified `injections-arktype.scm` to inject root-call and chain-call schema
+  strings inside object->array and nested object values, including array-nested
+  array/object string values, for parity with member-call coverage.
 - Modified `imports.scm` to a compatibility-safe import query for cross-parser stability.
 - Modified `highlights.scm` to add ArkType chain-method highlighting captures
   (`and`, `or`, `case`, `in`, `extends`, `ifExtends`, `intersect`, `merge`,

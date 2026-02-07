@@ -68,6 +68,32 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
           [
             (string (string_fragment) @injection.content)
             (template_string (string_fragment) @injection.content)
+            (array
+              [
+                (string (string_fragment) @injection.content)
+                (template_string (string_fragment) @injection.content)
+              ])
+            (object
+              (pair
+                value: [
+                  (string (string_fragment) @injection.content)
+                  (template_string (string_fragment) @injection.content)
+                ]))
+            (object
+              (pair
+                value: (array
+                  [
+                    (string (string_fragment) @injection.content)
+                    (template_string (string_fragment) @injection.content)
+                  ])))
+            (object
+              (pair
+                value: (object
+                  (pair
+                    value: [
+                      (string (string_fragment) @injection.content)
+                      (template_string (string_fragment) @injection.content)
+                    ]))))
           ]))))
   (#set! injection.language "arktype"))
 
@@ -95,6 +121,32 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
       [
         (string (string_fragment) @injection.content)
         (template_string (string_fragment) @injection.content)
+        (array
+          [
+            (string (string_fragment) @injection.content)
+            (template_string (string_fragment) @injection.content)
+          ])
+        (object
+          (pair
+            value: [
+              (string (string_fragment) @injection.content)
+              (template_string (string_fragment) @injection.content)
+            ]))
+        (object
+          (pair
+            value: (array
+              [
+                (string (string_fragment) @injection.content)
+                (template_string (string_fragment) @injection.content)
+              ])))
+        (object
+          (pair
+            value: (object
+              (pair
+                value: [
+                  (string (string_fragment) @injection.content)
+                  (template_string (string_fragment) @injection.content)
+                ]))))
       ]))
   (#set! injection.language "arktype"))
 
@@ -193,6 +245,32 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
           [
             (string (string_fragment) @injection.content)
             (template_string (string_fragment) @injection.content)
+            (array
+              [
+                (string (string_fragment) @injection.content)
+                (template_string (string_fragment) @injection.content)
+              ])
+            (object
+              (pair
+                value: [
+                  (string (string_fragment) @injection.content)
+                  (template_string (string_fragment) @injection.content)
+                ]))
+            (object
+              (pair
+                value: (array
+                  [
+                    (string (string_fragment) @injection.content)
+                    (template_string (string_fragment) @injection.content)
+                  ])))
+            (object
+              (pair
+                value: (object
+                  (pair
+                    value: [
+                      (string (string_fragment) @injection.content)
+                      (template_string (string_fragment) @injection.content)
+                    ]))))
           ]))))
   (#set! injection.language "arktype"))
 
@@ -212,6 +290,32 @@ const INJECTIONS_TEMPLATE = `; NOTE: This file is managed by scripts/sync-upstre
           [
             (string (string_fragment) @injection.content)
             (template_string (string_fragment) @injection.content)
+            (array
+              [
+                (string (string_fragment) @injection.content)
+                (template_string (string_fragment) @injection.content)
+              ])
+            (object
+              (pair
+                value: [
+                  (string (string_fragment) @injection.content)
+                  (template_string (string_fragment) @injection.content)
+                ]))
+            (object
+              (pair
+                value: (array
+                  [
+                    (string (string_fragment) @injection.content)
+                    (template_string (string_fragment) @injection.content)
+                  ])))
+            (object
+              (pair
+                value: (object
+                  (pair
+                    value: [
+                      (string (string_fragment) @injection.content)
+                      (template_string (string_fragment) @injection.content)
+                    ]))))
           ]))))
   (#set! injection.language "arktype"))
 
