@@ -336,15 +336,21 @@ function updateExtensionToml(repoRoot, treeSitterSha) {
   const target = path.join(repoRoot, 'extension.toml');
   const lines = fs.readFileSync(target, 'utf8').split('\n');
   let inGrammarSection = false;
+  let sawGrammarSection = false;
+  let sawRev = false;
   let updated = false;
 
   for (let i = 0; i < lines.length; i += 1) {
     const stripped = lines[i].trim();
     if (stripped.startsWith('[') && stripped.endsWith(']')) {
       inGrammarSection = stripped === '[grammars.arktype]';
+      if (inGrammarSection) {
+        sawGrammarSection = true;
+      }
       continue;
     }
     if (inGrammarSection && stripped.startsWith('rev = ')) {
+      sawRev = true;
       const newLine = `rev = "${treeSitterSha}"`;
       if (lines[i] !== newLine) {
         lines[i] = newLine;
@@ -352,6 +358,13 @@ function updateExtensionToml(repoRoot, treeSitterSha) {
       }
       break;
     }
+  }
+
+  if (!sawGrammarSection) {
+    throw new Error('Could not find [grammars.arktype] section in extension.toml');
+  }
+  if (!sawRev) {
+    throw new Error('Could not find rev entry in [grammars.arktype] section');
   }
 
   if (!updated) return 0;
