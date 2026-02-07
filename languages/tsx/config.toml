@@ -1,5 +1,5 @@
 name = "TSX"
-grammar = "tsx"
+grammar = "zed_tsx"
 path_suffixes = ["tsx"]
 line_comments = ["// "]
 block_comment = { start = "/*", prefix = "* ", end = "*/", tab_size = 1 }

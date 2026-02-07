@@ -1,5 +1,5 @@
 name = "JavaScript"
-grammar = "tsx"
+grammar = "zed_tsx"
 path_suffixes = ["js", "jsx", "mjs", "cjs"]
 # [/ ] is so we match "env node" or "/node" but not "ts-node"
 first_line_pattern = '^#!.*\b(?:[/ ]node|deno run.*--ext[= ]js)\b'
