@@ -1,5 +1,7 @@
 # arktype-zed-extension
 
+![screenshot](./docs/screenshot.png)
+
 Unofficial ArkType syntax-highlighting extension for Zed.
 
 - Highlights ArkType syntax in schema strings/template strings passed to ArkType APIs (for example `type("string.email")`, chained calls like `.or(...)`/`.to(...)`, and object/array schema values).
