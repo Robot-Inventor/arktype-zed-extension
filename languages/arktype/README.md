@@ -14,7 +14,8 @@ This directory contains files adapted from third-party projects.
 ### Adaptation Summary
 
 `highlights.scm` was adapted for Zed theme/capture behavior. Local additions include
-captures for `keyword`, `literal`, and `escape_sequence`.
+captures for `keyword`, `literal`, and `escape_sequence`, plus literal classification
+predicates and regex capture alignment (`@string.regex` / `@string.special`).
 
 <details>
 <summary>License Text (MIT)</summary>

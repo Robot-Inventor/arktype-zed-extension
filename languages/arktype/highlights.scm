@@ -1,6 +1,14 @@
 (primitive) @type.builtin
 (keyword) @type.builtin
-(literal) @boolean
+
+((literal) @boolean
+  (#match? @boolean "^(true|false)$"))
+
+((literal) @string.special
+  (#match? @string.special "^'.*'$"))
+
+((literal) @string.special
+  (#match? @string.special "^\".*\"$"))
 
 (operator) @operator
 
@@ -9,9 +17,11 @@
 
 (number) @number
 
-(regex_pattern) @string.regexp
+(regex) @string.regex
 
-(regex_flags) @character.special
+(regex_pattern) @string.regex
+
+(regex_flags) @string.special
 
 [
  "("
