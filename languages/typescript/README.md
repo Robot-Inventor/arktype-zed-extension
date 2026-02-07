@@ -1,87 +1,36 @@
-# arktype-zed-extension
+# Third-Party Notice (`languages/typescript`)
 
-Unofficial ArkType highlighting extension for Zed.
+This directory contains files adapted from third-party projects.
 
-## Features
+## Source 1: Zed Built-in Language Definitions
 
-- Registers the ArkType Tree-sitter grammar.
-- Adds a hidden `ArkType` language used only as an injection target.
-- Injects ArkType highlighting into JavaScript (including JSX), TypeScript, and TSX strings passed to ArkType APIs.
-- Uses Zed's built-in JavaScript/TypeScript/TSX grammars (no JS/TS grammar replacement in this extension).
-
-## License
-
-This repository is licensed under GPL-3.0-or-later. See `LICENSE`.
-
-## Local Development
-
-1. Open Zed and run `Install Dev Extension`.
-2. Select this repository directory.
-3. Open a JS/TS file and add an ArkType string such as `type("string.email")`.
-
-## Third-Party Notices
-
-### ArkType Tree-sitter grammar (`tree-sitter-arktype`)
-
-- Usage: ArkType parser used by this extension for injected highlighting.
-- Source: https://github.com/jeffrom/tree-sitter-arktype
-- License: MIT
-
-<details>
-<summary>License Text (MIT)</summary>
-
-```text
-MIT License
-
-Copyright (c) Jeff Martin
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-</details>
-
-### ArkType VS Code extension rules (`ark/extension/injected.tmLanguage.json`)
-
-- Usage: Reference/adaptation source for ArkType injection and chain-highlighting behavior parity.
-- Source: https://github.com/arktypeio/arktype/tree/main/ark/extension
-- License: MIT
-
-<details>
-<summary>License Text (MIT)</summary>
-
-```text
-Copyright 2025 ArkType
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
-</details>
-
-### Zed built-in JavaScript/TypeScript/TSX language definitions
-
-- Usage: Baseline query/config files adapted in `languages/javascript`, `languages/typescript`, and `languages/tsx`.
-- Source: https://github.com/zed-industries/zed/tree/main/crates/languages/src
+- Upstream project: `zed-industries/zed`
+- Source path: `crates/languages/src/typescript`
+- Source URL: https://github.com/zed-industries/zed/tree/main/crates/languages/src
+- Applied files in this directory:
+  - `config.toml`
+  - `brackets.scm`
+  - `debugger.scm`
+  - `highlights.scm`
+  - `imports.scm`
+  - `indents.scm`
+  - `injections.scm`
+  - `outline.scm`
+  - `overrides.scm`
+  - `runnables.scm`
+  - `textobjects.scm`
 - License: GPL-3.0-or-later
+
+### Modification Notice (required by GPL-3.0-or-later)
+
+Compared to upstream, the following local modifications were made:
+
+- Added `injections-arktype.scm` for ArkType-specific string/template injections.
+- Modified `imports.scm` to a compatibility-safe import query for cross-parser stability.
+- Modified `highlights.scm` to add ArkType chain-method highlighting captures
+  (`and`, `or`, `case`, `in`, `extends`, `ifExtends`, `intersect`, `merge`,
+  `exclude`, `extract`, `overlaps`, `subsumes`, `to`, `satisfies`).
+- Last modification notice update: 2026-02-07.
 
 <details>
 <summary>License Text (GPL-3.0-or-later)</summary>
@@ -291,37 +240,31 @@ The GNU General Public License does not permit incorporating your program into p
 
 </details>
 
-### Tree-sitter TypeScript grammar
+## Source 2: ArkType VS Code Extension Injection Rules
 
-- Usage: Underlying JS/TS parser family used by Zed for JavaScript/TypeScript/TSX.
-- Source: https://github.com/tree-sitter/tree-sitter-typescript and https://github.com/zed-industries/tree-sitter-typescript
+- Upstream project: `arktypeio/arktype`
+- Source path: `ark/extension/injected.tmLanguage.json`
+- Source URL: https://github.com/arktypeio/arktype/tree/main/ark/extension
+- Applied files in this directory:
+  - `injections-arktype.scm` (adapted behavior)
 - License: MIT
+
+### Adaptation Summary
+
+The original TextMate-style injection behavior was adapted to Tree-sitter query form,
+including chained ArkType APIs and object/array string-value injection coverage.
 
 <details>
 <summary>License Text (MIT)</summary>
 
 ```text
-The MIT License (MIT)
+Copyright 2025 ArkType
 
-Copyright (c) 2017 Max Brunsfeld
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 </details>
