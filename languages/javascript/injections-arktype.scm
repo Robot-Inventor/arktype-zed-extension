@@ -22,6 +22,35 @@
         ])))
   (#set! injection.language "arktype"))
 
+; Root ArkType calls with object->array value strings: type({ tags: ["string"] })
+(call_expression
+  function: (identifier) @_ark_fn
+  (#match? @_ark_fn "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: (array
+          [
+            (string (string_fragment) @injection.content)
+            (template_string (string_fragment) @injection.content)
+          ]))))
+  (#set! injection.language "arktype"))
+
+; Root ArkType calls with nested object value strings: type({ user: { id: "string" } })
+(call_expression
+  function: (identifier) @_ark_fn
+  (#match? @_ark_fn "^(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: (object
+          (pair
+            value: [
+              (string (string_fragment) @injection.content)
+              (template_string (string_fragment) @injection.content)
+            ])))))
+  (#set! injection.language "arktype"))
+
 ; Root ArkType calls with array value strings: type(["string", "number"])
 (call_expression
   function: (identifier) @_ark_fn
