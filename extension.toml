@@ -1,0 +1,11 @@
+id = "arktype"
+name = "ArkType"
+version = "0.0.1"
+schema_version = 1
+authors = ["roboin <https://github.com/Robot-Inventor>"]
+description = "Unofficial ArkType extension for Zed"
+repository = "https://github.com/Robot-Inventor/arktype-zed-extension"
+
+[grammars.arktype]
+repository = "https://github.com/jeffrom/tree-sitter-arktype"
+rev = "2fa3936dd0f2626c06195c4869d0d318ee717520"
