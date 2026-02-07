@@ -1,3 +1,0 @@
-name = "JSX"
-grammar = "javascript"
-path_suffixes = ["jsx"]

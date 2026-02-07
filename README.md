@@ -5,8 +5,8 @@ Unofficial ArkType highlighting extension for Zed.
 ## Features
 
 - Registers the ArkType Tree-sitter grammar.
-- Injects ArkType highlighting into JavaScript/TypeScript strings passed to `type(...)` and `scope(...)`.
-- Overlays existing JavaScript/TypeScript/JSX/TSX language support instead of adding a new ArkType filetype.
+- Injects ArkType highlighting into JavaScript (including JSX), TypeScript, and TSX strings passed to `type(...)` and `scope(...)`.
+- Adds ArkType injection queries on top of Zed's built-in JavaScript/TypeScript/TSX language definitions.
 
 ## Local Development
 
