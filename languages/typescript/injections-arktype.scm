@@ -23,16 +23,30 @@
     ])
   (#set! injection.language "arktype"))
 
-; Chained ArkType APIs such as type("...").to("...") / .and("...") / ...
+; ArkType chained APIs with direct string args, e.g. type("...").to("...")
 (call_expression
   function: (member_expression
-    object: (call_expression) @_ark_chain
+    object: (call_expression)
     property: (property_identifier) @_chain_method)
-  (#match? @_ark_chain "(^|\\W)(type|generic|scope|define|match|fn|module|[aA]rk[a-zA-Z]*)\\s*\\(")
   (#match? @_chain_method "^(and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
   arguments: (arguments
     [
       (string (string_fragment) @injection.content)
       (template_string (string_fragment) @injection.content)
     ])
+  (#set! injection.language "arktype"))
+
+; ArkType chained APIs with object literal args, e.g. type("...").to({ a: "string" })
+(call_expression
+  function: (member_expression
+    object: (call_expression)
+    property: (property_identifier) @_chain_method)
+  (#match? @_chain_method "^(and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$")
+  arguments: (arguments
+    (object
+      (pair
+        value: [
+          (string (string_fragment) @injection.content)
+          (template_string (string_fragment) @injection.content)
+        ])))
   (#set! injection.language "arktype"))
