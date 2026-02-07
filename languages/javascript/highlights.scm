@@ -360,3 +360,10 @@
 (jsx_self_closing_element (["<" "/>"]) @punctuation.bracket.jsx)
 (jsx_attribute "=" @punctuation.delimiter.jsx)
 (jsx_text) @text.jsx
+
+; ArkType chain methods in fluent call expressions.
+(call_expression
+  function: (member_expression
+    object: (call_expression)
+    property: (property_identifier) @function.method)
+  (#match? @function.method "^(and|or|case|in|extends|ifExtends|intersect|merge|exclude|extract|overlaps|subsumes|to|satisfies)$"))
