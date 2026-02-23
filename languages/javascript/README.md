@@ -36,7 +36,7 @@ Compared to upstream, the following local modifications were made:
 - Modified `highlights.scm` to add ArkType chain-method highlighting captures
   (`and`, `or`, `case`, `in`, `extends`, `ifExtends`, `intersect`, `merge`,
   `exclude`, `extract`, `overlaps`, `subsumes`, `to`, `satisfies`).
-- Last modification notice update: 2026-02-07.
+- Last modification notice update: 2026-02-23.
 
 <details>
 <summary>License Text (GPL-3.0-or-later)</summary>
